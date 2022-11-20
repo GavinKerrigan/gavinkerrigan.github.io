@@ -1,0 +1,149 @@
+html {
+    font-family: -apple-system, Helvetica, arial, sans-serif;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 1.5em;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  body {
+    margin: 0;
+  }
+  body .content {
+    margin-bottom: 120px;
+  }
+  a {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: underline dotted;
+    text-decoration-thickness: 1px;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: -apple-system, Helvetica, arial, sans-serif;
+  }
+  h1 {
+    line-height: 1.2em;
+  }
+  .clear {
+    clear: both;
+  }
+  .hidden {
+    display: none;
+  }
+  .wrap {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .mono {
+    font-family: monospace;
+  }
+  .nav {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .nav a {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    border-bottom: none;
+    font-size: 12px;
+  }
+  .nav a:hover {
+    font-weight: bold;
+  }
+  .nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  #about {
+    margin-top: 60px;
+    margin-bottom: 100px;
+  }
+  #about #name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  #about #contact {
+    margin-bottom: 16px;
+    font-family: monospace;
+  }
+  #about #body {
+    float: left;
+    font-size: 16px;
+    max-width: 70%;
+  }
+  #about #body #ack {
+    
+    font-size: 10px;
+  }
+  #about #profile {
+    float: right;
+    margin-top: 18px;
+    margin-left: 1em;
+  }
+  hr {
+    border-top: #ccc;
+  }
+  @media screen and (max-width: 700px) {
+    body {
+      margin: 0 7px;
+    }
+
+    #about #body{
+      float: left;
+      text-align: left;
+      max-width: 100%;
+    }
+    #about #profile {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+  }
+  #papers {
+    max-width: 700px;
+    margin: 0 auto 100px auto;
+  }
+  #papers {
+    margin-top: 60px;
+    line-height: 1.5em;
+  }
+  #papers h1 {
+    margin-top: 60px;
+    margin-bottom: 0px;
+    font-size: 24px;
+  }
+  #papers #scholar {
+    margin-top: 0px;
+    margin-bottom: 32px;
+    font-size: 16px;
+  }
+  #papers .paper-row {
+    margin-bottom: 30px;
+  }
+  #papers .paper-title,
+  #papers .paper-authors,
+  #papers .paper-venue,
+  #papers .paper-links {
+    margin: 0;
+  }
+  #papers .pub-links {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+  }
+  #papers .pub-links li {
+    display: inline;
+    padding-right: 10px;
+  }
+  
