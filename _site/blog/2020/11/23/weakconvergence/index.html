@@ -1,0 +1,124 @@
+<html>
+<head>
+    <title>Weak Topologies</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content='Gavin Kerrigan is a PhD student studying machine learning.'>
+    <meta name='keywords' content='functional analysis, mathematics, topology'>
+    <meta name='author' content='Gavin Kerrigan'>
+
+    <link href='/css/blog.css' rel='stylesheet'/>
+    <link href='/css/trac.css' rel='stylesheet'/>
+    <link href='/css/markdown.css' rel='stylesheet'/>
+    <link href='/css/theorems.css' rel='stylesheet'/>
+
+    <script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  jax: ['input/TeX', 'output/HTML-CSS'],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['\[', '\]']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    extensions: ['color.js']
+  },
+  messageStyle: 'none',
+  'HTML-CSS': { preferredFont: 'TeX', availableFonts: ['STIX','TeX'] }
+});
+</script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+    Macros: {
+      R: '\\mathbb{R}',
+      norm: ['\\lvert\\lvert{#1}\\rvert\\rvert',1],
+      weakto: '\\rightharpoonup'
+    }
+  }
+});
+</script>
+
+<script src='//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full' type='text/javascript'></script>
+
+
+
+</head>
+<body>
+<div class='content'>
+    <div class='nav'>
+    <ul class='wrap'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/publications'>Publications</a></li>
+    </ul>
+</div>
+
+    <div class='front-matter'>
+        <div class='wrap'>
+            <h1>Weak Topologies</h1>
+            <h4>Weak convergence in Banach spaces.</h4>
+            <div class='bylines'>
+                <div class='byline'>
+                    <h3>Published</h3>
+                    <p>23 November 2020</p>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='wrap article'>
+        <h1 id="introduction">Introduction</h1>
+
+<p>Let $X$ be a normed vector space. Let’s first start with the usual notion of convergence, but let’s give it a special name to indicitate that we’ll be thinking about different modes of convergence.</p>
+
+<div class="definition" name="Strong Convergence">
+A sequence $(x_n)$ in $X$ is said to <b>converge strongly</b> to $x$ if $\norm{x_n - x} \to 0$.
+</div>
+
+<p>For the sake of convenience, we’ll often simply write $x_n \to x$ to denote that a sequence strongly converges to $x$.</p>
+
+<div class="definition" name="Weak Convergence">
+A sequence $(x_n)$ in $X$ is said to <b>converge weakly</b> to $x$ if for every bounded linear functional $\varphi \in X'$, we have $\norm{\varphi(x_n) - \varphi(x)} \to 0$.
+</div>
+
+<p>We’ll use $x_n \weakto x$ to denote weak convergence. Weakly convergent sequences have several properties that we’d hope for in any notion of a convergent sequence – for example, if $x_n \weakto x$, then (a) its weak limit is unique, (b) any subsequence also converges weakly to $x$, and (c) the sequence is bounded.  Facts (a-b) are easy to prove, and (c) is an application of the Banach-Steinhaus theorem.</p>
+
+<p>Why is this called weak convergence? If $x_n \to x$ converges in the strong sense, then it is true that $\varphi(x_n) \to \varphi(x)$ for every $\varphi \in X’$, as the linear functionals $\varphi$ are continuous. Hence, $x_n \to x$ implies $x_n \weakto x$.  The converse, however, is not true – weak convergence really is weaker than strong convergence.</p>
+
+<div class="proposition">
+Let $p \in (1, \infty)$ and consider the Banach space $\ell^p$. Consider the sequence $(\delta_n)$, where $\delta_n = (0, 0, \dots, 0, 1, 0, \dots)$ is a sequence which is identically zero except at the $n$th position. Then, $\delta_n \weakto 0$, but the sequence $(\delta_n)$ does not converge strongly.
+</div>
+
+<div class="proof">
+We can identify the dual of $\ell^p$ with $\ell^q$, where $q$ satisfies $\frac{1}{p} + \frac{1}{q} = 1$. That is, any $\varphi \in (\ell^p)'$ can be expressed as
+
+[ \varphi(x) = \sum_{k=1}^\infty \varphi_k x_k  \quad \text{s.t.} \quad \sum_{k=1}^\infty |\varphi_k|^q &lt; \infty. ] 
+
+In particular, $|\varphi(\delta_n)| = |\varphi_n|$, which must converge to zero as $\sum_{k=1}^\infty |\varphi_k|^q$ converges. This holds for any $\varphi \in (\ell^p)'$, and so $\delta_n \weakto 0$. On the other hand, for $n \neq m$ we have
+
+[ \norm{\delta_n - \delta_m}_p = 2^{1/p} ] 
+which shows that the sequence $(\delta_n)$ is not Cauchy, and hence it does not strongly converge.
+</div>
+
+<p>Interestingly, weak convergence <em>can</em> imply strong convergence in certain spaces. Such a space is said to have the <b>Schur property</b>. For instance, the space $\ell^1$ has the Schur property – this is fairly tricky to prove, and we’ll skip the proof here.</p>
+
+<p>One might wonder why the notion of weak convergence doesn’t show up in standard real analysis. There’s a good reason for this: weak convergence implies strong convergence in finite-dimensional spaces.</p>
+
+<div class="proposition">
+Let $X$ be a finite dimensional normed space. If $x_n \weakto x$, then $x_n \to x$. 
+</div>
+<div class="proof">
+Since $X$ is finite dimensional, it admits a basis $\{e_1, \dots, e_k \}$. If we consider the bounded linear functionals $\varphi_j$ for $j= 1, 2, \dots, k$ defined by $\varphi_j(e_i) = \delta_{ij}$, weak convergence shows that each coordinate of $x_n$ converges (strongly) to the corresponding coordinate of $x$. 
+</div>
+
+    </div>
+    <div id='bibliography'>
+        <div class='wrap'>
+            <ol class="bibliography"></ol>
+        </div>
+    </div>
+</div>
+</body>
+</html>

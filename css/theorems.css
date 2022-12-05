@@ -1,0 +1,77 @@
+.theorem {
+    display: block;
+    margin-left: 4.5%; margin-right: 4.5%; margin-top: 2em;
+    font-style: italic;
+    counter-increment: theorem;
+}
+.theorem:before {
+    content: 'Theorem 'counter(theorem)'.';
+    font-weight: bold;
+    font-style: normal;
+}
+.theorem[name]:before {
+    content: 'Theorem 'counter(theorem)' (' attr(name) ').';
+    font-weight: bold;
+    font-style: normal;
+}
+.lemma {
+    display: block;
+    margin-left: 4.5%; margin-right: 4.5%; margin-top: 2em;
+    font-style: italic;
+    counter-increment: lemma;
+}
+.lemma:before {
+    content: 'Lemma 'counter(lemma)'.';
+    font-weight: bold;
+    font-style: normal;
+}
+.lemma[name]:before {
+    content: 'Lemma 'counter(lemma)' (' attr(name) ').';
+    font-weight: bold;
+    font-style: normal;
+}
+.proof {
+    display: block;
+    margin-left: 4.5%; margin-right: 4.5%; margin-top: 1em;
+    font-style: normal;
+}
+.proof:before {
+    content: "Proof.";
+    font-style: italic;
+}
+.proof:after {
+    content: "\25FC";
+    float:right;
+}
+.definition {
+    display: block;
+    margin-left: 4.5%; margin-right: 4.5%; margin-top: 2em;
+    font-style: normal;
+    counter-increment: definition;
+}
+.definition:before {
+    content: 'Definition 'counter(definition)'.';
+    font-weight: bold;
+    font-style: normal;
+}
+.definition[name]:before {
+    content: 'Definition 'counter(definition)' (' attr(name) ').';
+    font-weight: bold;
+    font-style: normal;
+}
+.proposition {
+    display: block;
+    margin-left: 4.5%; margin-right: 4.5%; margin-top: 2em;
+    font-style: italic;
+    counter-increment: prop;
+}
+.proposition:before {
+    content: 'Proposition 'counter(prop)'.';
+    font-weight: bold;
+    font-style: normal;
+}
+.proposition[name]:before {
+    content: 'Proposition 'counter(prop)' (' attr(name) ').';
+    font-weight: bold;
+    font-style: normal;
+}
