@@ -4,7 +4,7 @@ subtitle: Weak convergence in Banach spaces.
 layout: blogpost
 date: 2020-11-23
 keywords: functional analysis, mathematics, topology
-published: false
+published: true
 ---
  
 # Introduction 
@@ -50,4 +50,30 @@ Let $X$ be a finite dimensional normed space. If $x_n \weakto x$, then $x_n \to 
 </div>
 <div class='proof'>
 Since $X$ is finite dimensional, it admits a basis $\{e_1, \dots, e_k \}$. If we consider the bounded linear functionals $\varphi_j$ for $j= 1, 2, \dots, k$ defined by $\varphi_j(e_i) = \delta_{ij}$, weak convergence shows that each coordinate of $x_n$ converges (strongly) to the corresponding coordinate of $x$. 
+</div>
+
+# Weak Completeness
+
+The standard notion of strong convergence leads us to a notion of Cauchy sequences and completeness, the latter playing a pivotal role in functional analysis. It turns out that weak convergence also gives us a notion of completeness, which unsurprisingly is called weak completeness.
+
+<div class='definition' name='Weak Cauchy; Weak Complete'>
+Let $X$ be a normed vector space. A sequence $(x_n) \subset X$ is said to be <b>weak Cauchy</b> if the sequence $(\varphi(x_n)) \subset \mathbb{F}$ is Cauchy in the base field for every $\varphi \in X'$. We say that $X$ is <b>weak complete</b> if every weak Cauchy sequence converges weakly to some point in $X$. 
+</div>
+
+Here, we use $\mathbb{F}$ to represent either $\R$ or $\mathbb{C}$. By the Banach-Steinhaus theorem, we see that if $(x_n)$ is a weak Cauchy sequence, then $\sup \norm{x_n} < \infty$, i.e. the sequence is bounded. A natural question one might ask is whether $X$ being complete implies that $X$ is weak complete. It turns out that, in general, the answer is a surprising no. However, there is one fairly general family of spaces where this is true: the reflexive spaces. Note that we don't need to assume that $X$ is Banach, because reflexive normed vector spaces are automatically Banach. 
+
+<div class='proposition'>
+Let $X$ be a reflexive normed vector space. Then, $X$ is weakly complete.
+</div>
+<div class='proof'>
+We need to show that every weak Cauchy sequence in $X$ has a weak limit in $X$. To that end, let $(x_n) \subset X$ be a weak Cauchy sequence and fix an arbitrary $\varphi \in X'$. We will show $\varphi(x_n) \to \varphi(x)$ for some $x \in X$ which is chosen independently of $\varphi$. To that end, define the map $\alpha: X' \to \mathbb{F}$ via $\alpha(\varphi) = \lim_{n \to \infty} \varphi(x_n)$. This limit exists because $(\varphi(x_n))$ is Cauchy in $\mathbb{F}$.
+
+<p>
+We claim $\alpha$ is a bounded linear map. It is easy to see that $\alpha$ is linear. Since $(x_n)$ is weak Cauchy, it is bounded, say $\norm{x_n} \leq M$. Then,
+
+[\norm{\alpha} = \sup_{\norm{\varphi} = 1} \{ |\alpha(\varphi)| \} = \sup_{\norm{\varphi} = 1} \{ | \lim_{n \to \infty} \varphi(x_n) | \} \leq M.]
+</p>
+
+Thus, $\alpha$ is a bounded linear map, i.e. $\alpha \in X''$. Since $X$ is reflexive, $X$ is isometrically isomorphic to $X''$, and we may identify $\alpha$ with evaluation by an element $x \in X$. That is, for every $\varphi \in X'$, we have
+[ \alpha(\varphi) = \lim_{n \to \infty} \varphi(x_n) = \varphi(x). ]
 </div>
