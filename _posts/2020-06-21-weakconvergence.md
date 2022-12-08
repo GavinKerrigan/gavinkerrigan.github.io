@@ -1,8 +1,8 @@
 ---
-title: Weak Topologies
-subtitle: Weak convergence in Banach spaces.
+title: Modes of Convergence 1
+subtitle: We study the various modes of convergence of points in normed vector spaces.
 layout: blogpost
-date: 2020-11-23
+date: 2022-12-06
 keywords: functional analysis, mathematics, topology
 published: true
 ---
