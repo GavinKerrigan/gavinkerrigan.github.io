@@ -16,7 +16,7 @@ Many PDEs can be posed as variational problems, where the solution to a PDE can 
 
 A fundamental technique in the optimization toolkit is gradient descent. If we are able to phrase a PDE as the minimizer of some functional, then performing gradient descent on this functional in the appropriate space should give us a numerical scheme for solving this PDE.
 
-The Jordan-Kinderlehrer-Otto scheme (JKO) carries out this task for the Fokker-Planck-Kolmogorov equation. It turns out that the right space for doing this is the Wasserstein space, leading to a beautiful connection with optimal transport.
+The Jordan-Kinderlehrer-Otto scheme (JKO) carries out this task for the Fokker-Planck-Kolmogorov equation. It turns out that the right space for doing this is the Wasserstein space, leading to a connection with optimal transport.
 
 ## Minimizing Movements Scheme
 
