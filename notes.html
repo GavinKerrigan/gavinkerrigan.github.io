@@ -67,12 +67,13 @@ title: notes
     {% include nav.html %}
     <div id='blog' class='wrap'>
     	<h1> Notes </h1>
+    	<em> This is a collection of personal notes on various topics. These aren't meant to be pedagogical, but rather as a means of <a href='https://www.amazon.com/Writing-Learn-William-Zinsser/dp/0062720406'>writing to learn</a>. I make no claims of originality nor correctness -- proceed with caution. </em>
                 {% assign topics = site.notes | group_by: "topic" %}
                 {% for topic in topics %}
                     <div class="topic">{{ topic.name }}</div>
                     {% assign chapters = topic.items | group_by: "chapter" %}
                     {% for chapter in chapters %}
-                        <div class="chapter">{{ chapter.name }}</div>
+                        <div class="chapter">{{ forloop.index }}. {{ chapter.name }}</div>
                         {% assign sections = chapter.items | sort: "section" %}
                         {% for section in sections %}
                             <div class="section">{{ forloop.parentloop.index }}.{{ forloop.index }}: <a href="{{ section.url }}">{{ section.title }}</a></div>

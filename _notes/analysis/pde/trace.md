@@ -2,9 +2,9 @@
 title: "Trace Operators"
 topic: "Analysis"
 chapter: "PDEs"
-section: "sobolev"
+section: "trace"
 layout: note
-permalink: "/notes/analysis/pde/sobolev/"
+permalink: "/notes/analysis/pde/trace/"
 
 subtitle: Extending the notion of boundary values to Sobolev spaces
 date: 2024-06-24
@@ -92,7 +92,7 @@ Set $Tu = u\vert_{\partial U}$. Then, we have
 <strong>
 Step four: smooth approximations.
 </strong>
-Now fix a generic $u \in W^{1,p}(U)$. Then, there exists a sequence $(u_m)$ in $C^{\infty}(\overline{U})$ (see <a href="../smooth_approximations/">this note</a>) with $u_m \to u$ in $W^{1,p}(U)$. By the previous calculations,
+Now fix a generic $u \in W^{1,p}(U)$. Then, there exists a sequence $(u_m)$ in $C^{\infty}(\overline{U})$ (see <a href="../sobolev_approx/">this note</a>) with $u_m \to u$ in $W^{1,p}(U)$. By the previous calculations,
 
 \[
 \norm{Tu_j - T u_k}_{L^p(\partial U)} \leq C \norm{u_j - u_k}_{W^{1,p}(U)}
