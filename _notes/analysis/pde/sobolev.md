@@ -8,7 +8,7 @@ permalink: "/notes/analysis/pde/sobolev/"
 
 subtitle: Banach spaces with norms that measure derivatives
 date: 2024-06-17
-keywords: calculus of variations, analysis
+keywords: analysis, pdes
 published: true
 ---
 
