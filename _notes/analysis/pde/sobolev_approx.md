@@ -10,6 +10,7 @@ subtitle:
 date: 2024-06-21
 keywords: pdes, analysis, sobolev spaces
 published: true
+references: "Evans, L. C. (2022). Partial differential equations (2nd ed.).; "
 ---
 
 ## Mollifiers

@@ -10,6 +10,7 @@ subtitle:
 date: 2024-06-26
 keywords: analysis, pdes
 published: true
+references: "Evans, L. C. (2022). Partial differential equations (2nd ed.).; "
 ---
 
 We are interested in understanding the relationship between Sobolev spaces with different parameters $(k, p)$. Our strategy will be to establish various inequalities related to Sobolev norms on smooth functions, extending to the general case by a density argument.

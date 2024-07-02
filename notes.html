@@ -67,7 +67,7 @@ title: notes
     {% include nav.html %}
     <div id='blog' class='wrap'>
     	<h1> Notes </h1>
-    	<em> This is a collection of personal notes on various topics. These aren't meant to be pedagogical, but rather as a means of <a href='https://www.amazon.com/Writing-Learn-William-Zinsser/dp/0062720406'>writing to learn</a>. I make no claims of originality nor correctness -- proceed with caution. </em>
+    	<em> This is a collection of personal notes on various topics related to my research. These aren't meant to be pedagogical, but rather as a means of writing to learn. I make no claims of originality nor correctness -- proceed with caution. </em>
                 {% assign topics = site.notes | group_by: "topic" %}
                 {% for topic in topics %}
                     <div class="topic">{{ topic.name }}</div>

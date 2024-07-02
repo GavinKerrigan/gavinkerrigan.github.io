@@ -145,8 +145,8 @@ h1 {
 }
 #bibliography ol.bibliography {
   padding-left: 15px;
-  padding-top: 30px;
-  font-size: 12px;
+  padding-top: 0px;
+  font-size: 14px;
   color: rgba(0, 0, 0, 0.5);
 }
 #blog {

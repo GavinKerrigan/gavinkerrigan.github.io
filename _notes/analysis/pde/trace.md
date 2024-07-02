@@ -10,6 +10,7 @@ subtitle: Extending the notion of boundary values to Sobolev spaces
 date: 2024-06-24
 keywords: analysis, pdes
 published: true
+references: "Evans, L. C. (2022). Partial differential equations (2nd ed.).; "
 ---
 
 Throughout this note we assume $1 \leq p < \infty$. Suppose $u \in W^{1,p}(U)$. We'd like to have some notion of boundary values for $u$. However this is not straightforward for several reasons. First, $u$ may fail to be continuous, and hence it is unclear how to extend $u$ to the boundary. Even worse, $u \in W^{k,p}(U)$ is only defined up to a set of Lebesgue measure zero, and $\partial U$ has measure zero. 

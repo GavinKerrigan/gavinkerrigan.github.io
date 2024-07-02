@@ -36,6 +36,19 @@
     <div class='wrap article'>
         {{ content }}
     </div>
+        <div id='bibliography'>
+        <div class='wrap'>
+        {% if page.references %}
+        <h4> References. </h4>
+	  <ol class='bibliography'>
+                {% assign references = page.references | split: "; " %}
+                {% for reference in references %}
+                <li>{{ reference }}</li>
+                {% endfor %}
+	  </ol>
+	  {% endif %}
+        </div>
+    </div>
 </div>
 </div>
 </body>

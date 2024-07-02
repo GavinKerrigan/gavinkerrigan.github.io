@@ -10,6 +10,7 @@ subtitle: Banach spaces with norms that measure derivatives
 date: 2024-06-17
 keywords: analysis, pdes
 published: true
+references: "Evans, L. C. (2022). Partial differential equations (2nd ed.).; Calder, J. (2024). The calculus of variations."
 ---
 
 Let $U \subset \R^d$ be open and bounded with smooth boundary $\partial U$. We write $V \Subset U$ if $V$ is compactly contained within $U$, i.e. $\overline{V}$ is compact and $V \subset \overline{V} \subset U$. 

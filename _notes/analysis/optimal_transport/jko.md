@@ -10,6 +10,7 @@ subtitle:
 date: 2024-06-20
 keywords: calculus of variations, analysis
 published: true
+references: "Jordan, R., Kinderlehrer, D., & Otto, F. (1998). The variational formulation of the Fokker--Planck equation. SIAM journal on mathematical analysis, 29(1), 1-17.; "
 ---
 
 Many PDEs can be posed as variational problems, where the solution to a PDE can be described as minimizing some functional defined in an appropriate space. For instance, recall that the <a href="../../variational_calculus/euler_lagrange/">Poisson equation can be seen as the minimizer of the Dirichlet energy</a>. This suggets an intimate link between *optimization* and *solving PDEs*.
@@ -125,7 +126,7 @@ This scheme is well-defined, and moreover, as the step size $\tau \to 0$, we rec
 Assume $p_0 \in \mathbb{P}_2^\lambda(\R^d)$. Then,
 <ol>
     <li> The minimizer in Equation (1) exists and is unique. </li>
-    <li> Suppose further that $F(p_0 < \infty$. As $\tau \to 0$, the minimizing movement scheme curve $p_t^\tau$ converges weakly in $L^1(\R^n)$ to the unique solution $p_t$ of the FPK equation for all $t \in (0, \infty)$.  </li>.
+    <li> Suppose further that $F(p_0) < \infty$. As $\tau \to 0$, the minimizing movement scheme curve $p_t^\tau$ converges weakly in $L^1(\R^n)$ to the unique solution $p_t$ of the FPK equation for all $t \in (0, \infty)$.  </li>.
 </ol>
 </div>
 
