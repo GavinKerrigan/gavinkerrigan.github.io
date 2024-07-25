@@ -206,14 +206,3 @@ which, upon dropping the term $\norm{s\_q}^2$, is the classic score-matching los
 \\]
 
 While nothing new has happened (as Stein's identity is really an integration by parts), this computation shows how one can use Stein's identity to kill an unknown score function.
-
-Links:
-- https://arxiv.org/pdf/1506.03039
-- https://arxiv.org/pdf/1608.04471
-- https://proceedings.neurips.cc/paper_files/paper/2020/file/16f8e136ee5693823268874e58795216-Paper.pdf
-- https://danmackinlay.name/notebook/stein_vgd.html
-- https://www.depthfirstlearning.com/2020/SVGD
-- https://www.cs.utexas.edu/~lqiang/stein.html
-- https://arxiv.org/abs/1807.01750
-- https://projecteuclid.org/journals/statistical-science/volume-38/issue-1/Steins-Method-Meets-Computational-Statistics--A-Review-of-Some/10.1214/22-STS863.full
-- https://arxiv.org/abs/2105.09994#
