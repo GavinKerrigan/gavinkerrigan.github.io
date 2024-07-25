@@ -14,7 +14,9 @@ references: "Folland, G. B. (1999). Real analysis: Modern techniques and their a
 ---
 
 
-We are interested in studying the interplay between topology and measure. In this note, we study Radon measures, which are nice measures on locally compapct Hausdorff spaces. Many (most?) of the measures we will meet in practice will be Radon. Our main theorem will identify the space of Radon measures on an LCH space with the topological dual of $C_0(X)$, the space of continuous functions on $X$ vanishing at infinity. 
+We are interested in studying the interplay between topology and measure. In this note, we study Radon measures, which are nice measures on locally compapct Hausdorff spaces. Many (most?) of the measures we will meet in practice will be Radon. Our main theorem will identify the space of Radon measures on an LCH space with the topological dual of $C_0(X)$, the space of continuous functions on $X$ vanishing at infinity.
+
+If the space $X$ is not locally compact, we may still define a notion of Radon measures. However, in this situation, it is not always possible to express the Radon measures in terms of continuous linear functionals on $C_c(X)$. Moreover, it is possible to define a notion of Radon measures on non-Hausdorff spaces, but this is not very useful.
 
 
 ## Preliminaries on LCH spaces
@@ -215,5 +217,161 @@ Combining these two estimates yields
 
 and as $\text{supp}(f) < \infty$ we may take $N \to \infty$ to conclude.
 </details>
+
+## Regularity and Approximation
+
+In this section we'll see some further regularity properties of Radon measures. Recall that a Borel set is said to be $\sigma$-finite if it is the countable union of Borel sets with finite measure. Similarly, a Borel set is $\sigma$-compact if it is the countable union of compact sets. In both definitions the covering sets may be taken to be disjoint or increasing. 
+
+First, we see that under a $\sigma$-finite assumption, we gain inner regularity on all Borel sets (and not just the open sets).
+
+<div class='proposition'>
+Let $\mu$ be a Radon measure. Then, $\mu$ is inner regular on all of its $\sigma$-finite sets. 
+</div>
+<details class='proof'>
+<summary> Proof. </summary>
+Fix $\epsilon > 0$. First, suppose that $E \in \BB(X)$ is such that $\mu(E) < \infty$. By outer regularity, there exists an open set $U \supset E$ with $\mu(U) < \mu(E) + \epsilon$. Because $U$ is open, by inner regularity we may find a compact $F \subset U$ such that $\mu(F) > \mu(U) - \epsilon$. 
+
+<br><br>
+
+Note that $\mu(U \setminus E) < \epsilon$, and so again by outer regularity we can find an open $V \supset U \setminus E$ with $\mu(V) < \epsilon$. Now, set $K = F \setminus V$ and note that $K$ is compact as it is a compact set minus an open set. Moreover, $K \subset E$ because $K = F \cap V^c$ and 
+\[
+V \supset U \cap E^c \implies V^c \subset U^c \cup E \subset E.
+\]
+
+
+The idea is that we approximate $E$ from the outside with a compact set $F$ "sandwiched" between $E$ and $U$, and that $V$ is the area between $U$ and $E$ that we'd like to throw away -- including some of $E$ near its boundary. We use $F$ as a tool to make sure the remaining bits contained in $E$ are compact.
+
+Then, we have
+
+\[
+\begin{aligned}
+\mu(K) &= \mu(F) - \mu(F \cap V) \\
+&> \mu(U) - \epsilon - \mu(V) \\
+&> \mu(E) - \epsilon - \mu(V) \\
+&> \mu(E) - 2 \epsilon. 
+\end{aligned}
+\]
+
+As $\epsilon$ was arbitrary we see that $\mu(E) = \sup\{\mu(K) : K \subset E, \; K \text{ compact} \}$ i.e. $E$ is inner regular.
+
+<br><br>
+
+If $\mu(E) = \infty$ and $E$ is $\sigma$-finite, then $E = \bigcup_{j=1}^\infty E_j$ where the $E_j$'s are increasing, of finite measure, and we may take $\mu(E_j) \to \infty$. In particular, for a given $N$ there is some $j$ with $\mu(E_j) > N$. The previous argument applied to $E_j$ yields a compact set $K \subset E_j \subset E$ with $\mu(K) > N$. Thus $\mu$ is inner regular on $E$ as we may find a sequence of compact sets $K_j \subset E$ with $\mu(K_j) \to \infty$. 
+</details>
+
+<div class='corollary'>
+Every $\sigma$-finite Radon measure is regular. If $X$ is $\sigma$-compact, every Radon measure on $X$ is regular. 
+</div>
+
+Next, we see that we can approximate a Radon measure via closed/open sets.
+
+<div class='proposition'>
+Let $\mu$ be a $\sigma$-finite Radon measure and suppose $E \in \BB(X)$. Then, for every $\epsilon > 0$, there exists an open set $U$ and a closed set $F$ such that $F \subseteq E \subseteq U$ and $\mu(U \setminus F) < \epsilon$.
+</div>
+<details class='proof'>
+<summary>Proof. </summary>
+Let $E = \bigcup_{j=1}^\infty E_j$ where the $E_j$'s are disjoint and of finite measure. For each $j$, we can choose an open $U_j \supseteq E_j$ with $\mu(U_j) < \mu(E_j) + \epsilon 2^{-j + 1}$. Set $U = \bigcup_{j=1}^\infty U_j$. Observe that $U$ is open, $U \supseteq E$, and
+\[
+\mu(U \setminus E) = \mu\left(\bigcup_{j=1}^\infty U_j  \cap \left( \bigcap_{j=1}^\infty E_j^c\right) \right) \leq \sum_{j=1}^\infty \mu(U_j \setminus E_j) < \epsilon/2.
+\]
+
+The same argument applied to $E^c$ yields an open set $V \supset E^c$ with $\mu(V \setminus E^c) < \epsilon/2$. Set $F = V^c$ and observe that $F$ is closed with $F \subseteq E$. Now, since $V \setminus E^c = V \cap E = F^c \cap E = E \setminus F$, we see
+\[
+\mu(U \setminus F) = \mu(U \setminus E) + \mu(E \setminus F) < \epsilon
+\]
+
+which shows the claim.
+</details>
+
+In some cases, the underlying space $X$ is sufficiently nice that our measures are automatically Radon. We single this setting out with a definition.
+
+<div class='definition' name='Radon Space'>
+A LCH space $X$ is called a Radon space if every finite Borel measure on $X$ is a Radon measure.
+</div>
+
+The following theorem shows that every second-countable space is a Radon space. In fact, we show a slightly stronger statement -- namely, we relax the second-countability assumption and the finiteness assumption. Recall that every separable metric space is second-countable, and hence is a Radon space. 
+
+<div class='theorem'>
+Suppose $X$ is an LCH space in which every open set is $\sigma$-compact (e.g., $X$ is second-countable). Then, every Borel measure on $X$ which is finite on compact sets is regular, and hence Radon.
+</div>
+<details class='proof'>
+<summary>Proof. </summary>
+For such a measure $\mu$, we have $C_c(X) \subseteq L^1(\mu)$ easily. Hence $I(f) = \int f \d \mu$ is a positive linear functional on $C_c(X)$, and by the Riesz representation theorem, there exists a unique Radon $\nu$ such that $I(f) = \int f \d \nu$ for all $f \in C_c(X)$. We will show $\mu = \nu$.
+
+<br><br>
+
+First suppose $U \subset X$ is open. Then, $U$ is $\sigma$-compact, and so $U = \bigcup_{j=1}^\infty K_j$ for some compact $K_j$. Define the functions
+\[
+f_1 \in C_c(X) \qquad f_1 \prec U \qquad f_1 = 1 \text{ on K_1}
+\]
+\[
+f_n \in C_c(X) \qquad f_n \prec U \qquad f_n = 1 \text{ on } \bigcup_{j=1}^{n} K_j \cup \bigcup_{j=1}^{n-1} \text{supp} f_j
+\]
+
+and note that $f_n \to 1_U$ is an increasing sequence converging pointwise to $1_U$. Thus, by the monotone convergence theorem,
+\[
+\mu(U) = \lim \int f_n \d \mu = \lim \int f_n \d \nu = \nu(U)
+\]
+and so $\mu = \nu$ on all open sets.
+
+<br><br>
+
+Now, suppose that $E \in \BB(X)$ is arbitrary. Then, by Proposition 3, there exists a closed set $F$ and an open set $V$ such that $F \subseteq E \subseteq V$ and $\nu(V \setminus F) < \epsilon$. But, since $V \setminus F$ is open, we see that $\nu(V \setminus F) = \mu(V \setminus F) < \epsilon$. In particular,
+\[
+\mu(V) \leq \mu(F) + \epsilon \leq \mu(E) + \epsilon \qquad \mu(F) \geq \mu(V) - \epsilon \geq \mu(E) - \epsilon. 
+\]
+
+The first of these inequalities shows that $\mu$ is outer regular on $E$. Moreover, $F$ is $\sigma$-compact (as a closed subset of $X$ which is $\sigma$-compact) and thus there exists a sequence of compact $K_j \subseteq F$ with $\mu(K_j) \to \mu(F)$. Together with the second inequality above this shows that $\mu$ is inner regular. Hence, $\mu = \nu$ for every $E \in \BB(X)$ by the uniqueness of $\nu$. 
+</details>
+
+## Measurable Functions and Radon Measures
+
+We now study integration against Radon measures.
+
+First, we see that $C_c(X)$ is a dense subset of $L^p(\mu)$ when $\mu$ is Radon. The proof is an easy application of Uryshon's Lemma and the approximation theorems we have already proved.
+
+<div class='proposition' name='Density of Compactly Supported Functions'>
+If $\mu$ is a Radon measure on $X$, then $C_c(X)$ is dense in $L^p(\mu)$ for $1 \leq p < \infty$.
+</div>
+<details class='proof'>
+<summary> Proof. </summary>
+Recall that the simple functions are dense in $L^p$. It suffices to show that for any Borel $E \subset X$ with $\mu(E) < \infty$, the indicator $1_E$ can be approximated in the $L^p(\mu)$ norm by elements of $C_c(X)$. To that end, for a fixed $\epsilon > 0$ we may find a compact $K$ and open $U$ such that $K \subseteq E \subseteq U$ and $\mu(U \setminus K) < \epsilon$. Uryshon's Lemma furnishes us with an $f \in C_c(X)$ such that $1_K \leq f \leq 1_U$. Then,
+\[
+\norm{1_E - f}_{L^p(\mu)}^p \leq \int 1_{U \setminus K} f^p \d \mu < \epsilon.
+\]
+</details>
+
+Radon measures are also connected to the class of semicontinuous functions. We focus here on the LSC functions, but statements about LSC functions can typically be translated into USC functions without much hassle.
+
+<div class='definition' name='Semicontinuity'>
+Let $X$ be a topological space. A function $f: X \to (-\infty, \infty]$ is called lower semicontinuous (LSC) if $\{x : f(x) > a \}$ is open for every $a \in \R$. Similarly, $f: X \to [-\infty, \infty)$ is called upper semicontinuous (USC) if $\{ x: f(x) < a \}$ is open for every $a \in \R$.
+</div>
+
+<div class='proposition' name='Properties of LSC Functions'>
+Let $X$ be a topological space.
+<ol>
+<li>If $U \subset X$ is open, then $1_U$ is LSC. </li>
+<li>If $f$ is LSC and $c \in [0, \infty)$, then $cf$ is LSC. </li>
+<li>If $\mathcal{G}$ is a collection of LSC functions and $f(x) = \sup \{ g(x) : g \in \mathcal{G} \}$, then $f$ is LSC. In other words, the pointwise supremum of LSC functions is LSC. </li>
+<li>If $f_1, f_2$ are LSC, then $f_1 + f_2$ is LSC. </li>
+<li>If $X$ is LCH and $f$ is LSC and $f \geq 0$, then \[ f(x) = \sup \{g(x) : g \in C_c(X), \; 0 \leq g \leq f \}. \]</li>
+</ol>
+</div>
+<details class='proof'>
+<summary> Proof. </summary>
+The first two claims are straightforward. The third claim follows because
+\[
+f^{-1}(a, \infty] = \bigcup_{g \in \mathcal{G}} g^{-1}(a, \infty].
+\]
+For the fourth claim, fix an $a \in \R$ and suppose $x_0$ is such that $f_1(x_0) + f_2(x_0) > a$. Then, there is some $\epsilon > 0$ with $f_1(x_0) > a - g(x_0) + \epsilon$. Observe that a neighborhood of $x_0$ is given by
+\[
+\{ x : f(x_0) > a - f_2(x_0) + \epsilon \} \cap \{ x : f_2(x) > f_2(x_0) - \epsilon \}
+\]
+
+and moreover this neighborhood is contained within $\{ x: f_1(x) + f_2(x) > a \}$. Thus this set is open. Lastly, suppose $f(x) > 0$. Then, there exists an $a \in \R$ with $0 < a < f(x)$ and as $f$ is LSC the set $U = \{ y : f(y) > a \} $ is a neighborhood of $x$. Since $X$ is LCH, there is a compact neighborhood $K$ of $x$ which we may assume is contained within $U$. By Uryshon's Lemma, there exists $g \in C_c(X)$ with $g(x) = 1$ and $0 \leq g \leq a 1_U \leq f$. This shows the fifth claim (since $f(x)$ is clearly an upper bound on the set and we may thus find a sequence approaching this upper bound) when $f(x) > 0$. The case $f(x) = 0$ is trivial.
+</details>
+
+
+
 
 

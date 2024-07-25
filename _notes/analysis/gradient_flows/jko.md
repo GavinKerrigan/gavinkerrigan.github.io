@@ -1,16 +1,16 @@
 ---
 title: "The JKO Scheme"
 topic: "Analysis"
-chapter: "Optimal Transport"
+chapter: "Gradient Flows"
 section: "jko_scheme"
 layout: note
-permalink: "/notes/analysis/optimal_transport/jko/"
+permalink: "/notes/analysis/gradient_flows/jko/"
 
 subtitle: 
 date: 2024-06-20
 keywords: calculus of variations, analysis
 published: true
-references: "Jordan, R., Kinderlehrer, D., & Otto, F. (1998). The variational formulation of the Fokker--Planck equation. SIAM journal on mathematical analysis, 29(1), 1-17.; "
+references: "Jordan, R., Kinderlehrer, D., & Otto, F. (1998). The variational formulation of the Fokker--Planck equation. SIAM journal on mathematical analysis, 29(1), 1-17.; Hamfeldt, B. (2019) Gradient flows in the Wasserstein metric. https://www.youtube.com/watch?v=zzGBxAqJV0Q"
 ---
 
 Many PDEs can be posed as variational problems, where the solution to a PDE can be described as minimizing some functional defined in an appropriate space. For instance, recall that the <a href="../../variational_calculus/euler_lagrange/">Poisson equation can be seen as the minimizer of the Dirichlet energy</a>. This suggets an intimate link between *optimization* and *solving PDEs*.

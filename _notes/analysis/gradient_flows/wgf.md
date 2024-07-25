@@ -1,10 +1,10 @@
 ---
 title: "Wasserstein Gradient Flows"
 topic: "Analysis"
-chapter: "Optimal Transport"
+chapter: "Gradient Flows"
 section: "wgf"
 layout: note
-permalink: "/notes/analysis/optimal_transport/wgf/"
+permalink: "/notes/analysis/gradient_flows/wgf/"
 
 subtitle: 
 date: 2024-07-02
