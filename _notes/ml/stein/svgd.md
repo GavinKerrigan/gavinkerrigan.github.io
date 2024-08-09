@@ -9,7 +9,7 @@ permalink: "/notes/ml/stein/svgd/"
 subtitle: 
 date: 2024-07-24
 keywords: analysis, optimal transport, gradient flows
-published: false
+published: true
 references: "Liu, Q., Wang, D. (2016). Stein variational gradient descent: A general purpose Bayesian inference algorithm. NeurIPS.; "
 ---
 
@@ -28,7 +28,7 @@ T\_{\\#} p(x) = p(T^{-1}(x)) \|D T^{-1}(x)\|.
 First we prove a lemma that lets us move a pushforward from one side of the KL to the other. Here, we use measure-theoretic techniques to obtain a quite general statement that is applicable beyond the Lebesgue density setting. A special case of this claim for the Lebesuge setting appears in [1] using a direct argument via the change-of-variables formula for densities. Note that I don't pin down the exact conditions on $T$ under which the lemma holds (as it is apparently rather delicate), but by "sufficiently nice" I mean that all densities appearing in the proof exist. 
 
 <div class='lemma' name='KL Adjoints'>
-Suppose $T: U \to U$ is invertbiel and that $p, q$ are two probability measures on $U$. If $T, p, q$ are sufficiently nice such that all measures and their transformations along $T, T^{-1}$ are absolutely continuous, then 
+Suppose $T: U \to U$ is invertbile and that $p, q$ are two probability measures on $U$. If $T, p, q$ are sufficiently nice such that all measures and their transformations along $T, T^{-1}$ are absolutely continuous, then 
 
 \[
 \mathsf{KL}[T_{\#} q \mid\mid p ] = \mathsf{KL}[q \mid \mid T^{-1}_{\#} p].
@@ -140,6 +140,15 @@ and moreover $S\_k(q, p) = \norm{\phi^\*\_{q,p}}\_{\mathcal{H}^d}^2$. Hence, upo
 \frac{\d}{\d \epsilon} \Bigg|\_{\epsilon = 0} \mathsf{KL}\[ (I + \epsilon \phi^\*\_{q,p})\_{\\#} q \mid \mid p \]= - S_k(q, p).
 \\]
 
+### An Algorithm
+
+This suggests an iterative procedure, which is essentially a time-discretized gradient descent on the KL functional. Given some fixed initial distribution $q_0$, we iteratively define
+
+\\[
+q_k = \[T\_k\]\_{\\#} q\_{k-1} \qquad T\_k = x + \epsilon\_k \phi^{\*}_{q\_{k-1},p}(x).
+\\]
+
+It is intuitively clear that for sufficiently small step sizes $\epsilon\_k$, this will monotonically decrease the KL divergenece, and given that the KL function has a unique minimizer, we thus obtain a procedure for iterating $q_0$ towards $p$. The magic here is that these updates are available in *closed form* due to our choice of working in an RKHS!
 
 ## Links
 
