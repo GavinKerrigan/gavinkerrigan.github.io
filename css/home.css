@@ -123,6 +123,9 @@ html {
     margin-bottom: 0px;
     font-size: 24px;
   }
+  #papers h3 {
+    font-size: 20px;
+  }
   #papers #scholar {
     margin-top: 0px;
     margin-bottom: 32px;
@@ -130,6 +133,9 @@ html {
   }
   #papers .paper-row {
     margin-bottom: 30px;
+    margin-left: 30px;
+    padding-left: 10px;
+    border-left: 1px solid #5A80E3; /* Creates the vertical line */
   }
   #papers .paper-title,
   #papers .paper-authors,
