@@ -9,7 +9,7 @@ permalink: "/notes/ml/stein/svgd/"
 subtitle: 
 date: 2024-07-24
 keywords: analysis, optimal transport, gradient flows
-published: true
+published: false
 references: "Liu, Q., Wang, D. (2016). Stein variational gradient descent: A general purpose Bayesian inference algorithm. NeurIPS.; "
 ---
 
