@@ -13,7 +13,12 @@ published: false
 references: "Bogachev, V. (1998). Gaussian Measures, Chapter 5."
 ---
 
-In this note $X, Y$ are locally convex spaces. Let $\mathcal{M} \subset 2^X$ be a class of nonempty subsets of $X$. 
+In this note $X, Y$ are locally convex topological vector spaces. 
+
+
+## Differentiation of Maps
+
+Let $\mathcal{M} \subset 2^X$ be a class of nonempty subsets of $X$. 
 
 <div class='definition' name='Differentiability'>
 A mapping $F: X \to Y$ is differentiable with respect to $\mathcal{M}$ at the point $x \in X$ if there exists a continuous linear map $DF_x: X \to Y$ such that for every $M \in \mathcal{M}$,
@@ -140,3 +145,55 @@ However, if we take $E = C[0, 1] \subset L^2[0, 1]$. the Frechet derivative alon
 \left|\sin(x\_t + h\_t) - \sin(x\_t) - \cos(x\_t)h\_2\right|\_{L^2[0,1]} \leq \frac{1}{2} |h\_t|\_{\infty}^2
 \\]
 and hence we may apply Proposition 1.
+
+## Differentiability of Measures
+
+For a bit of motivation, we start with some loose analogies. Suppose $\mu$ is a probability measure on $\R^n$ admitting a density $p(x)$ with respect to the Lebesgue measure. If $f: \R^n \to \R$ is differentiable along a direction $h$, then using integration by parts, we can write
+\\[
+\int \partial_h f \d \mu = \int \partial_h f(x) p(x) \d x = -\int f(x) \partial_h p(x) \d x = -\int f \partial_h \log p \d \mu.
+\\]
+
+Stepping back, what we have done is to produce, in a weak sense, a notion of differentiating $\mu$ along $h$, where $f$ plays the role of a test function. The following general definition captures this idea more precisely. Recall that a Radon measure on a LCTVS $X$ is inner regular on open sets and locally finite.
+
+
+We first introduce our appropriate notion of test functions. Naturally these will be smooth, and to make analyses tractable, we will take them to be depending only on finitely many coordinates.
+
+<div class='definition' name='Smooth Cylindrical Functions'>
+We say a function $f:X \to \R$ on a locally convex TVS is a smooth cylindrical function if it is of the form
+\[
+f(x) = \varphi(x_1^*(x), \dots, x_n^*(x))
+\]
+
+for some $\varphi \in C_b^\infty(\R^n)$ and $x_1^*, \dots, x_n^* \in X$.
+</div>
+
+<div class='definition' name='Fomin Differentiation of a Measure'>
+Let $\mu$ be a Radon measure on a locally convex TVS $X$. We say that $\mu$ is Fomin differentiable along $h \in X$ if there exists a function $\beta_h^\mu \in L^1(\mu)$ such that for all smooth cylindrical $f$, we have
+\[
+\int_X \partial_h f(x) \d \mu(x) = - \int_x f(x) \beta_h^\mu(x) \d \mu(x).
+\]
+
+The function $\beta_h^\mu$ is called the logarithmic derivative of $\mu$ along $h$. The measure $\d_h\mu = \beta_h^\mu d \mu$ is called the derivative of $\mu$ along $h$.
+</div>
+
+Since differentiating a measure $\mu$ along $h$ results in a new measure $\d_h \mu$, we can induct on our definition to define higher-order derivatives of a measure. Although stated without proof, an equivalent (and the original) definition of Fomin differentiability is that the limit
+\\[
+\lim\_{t \to 0} \frac{\mu(A + th) - \mu(A)}{t}
+\\]
+exists for every Borel $A$. A rough sketch of this can be seen by integrating against test functions and taking appropriate limits, essentially exchanging limits in the test functions for limits of the measures.
+
+**Example.** Let $\mu$ be a probability measure on $\R$. It is differentiable along $1$ if and only if it admits a locally absolutely continuous density $p$ with respect to the Lebesgue measure and $p' \in L^1(\R)$. In one direction, this follows directly from integration by parts. In the other direction, observe that for $f \in C_c^\infty$, we have
+\\[
+\begin{aligned}
+ \int\_{-\infty}^\infty f(t) \d \mu(t) &= - \int\_{-\infty}^\infty \left( - \int\_t^\infty f(s) \d s \right) \beta_1^\mu(t) \d \mu(t) \\\\\\
+ &= \int_{-\infty}^\infty f(s) \left( \int_{-\infty}^s \beta_1^\mu(t) \d \mu(t) \right) \d s
+\end{aligned}
+\\]
+and hence
+\\[
+p(s) = \int\_{-\infty}^s \beta\_1^\mu(s) \d s
+\\]
+is a density for $\mu$, from which the absolute continuity follows.
+
+
+(Note: in Bogachev, it isn't assumed that $\mu$ is a probability measure -- but I think some integrability is necessary on $p$ to make things work; otherwise taking $\mu$ to be the Lebesgue measure itself should mean $p(x) = 1$ and $\beta(x) = 0$, for which the integration by parts formula fails in $C_b^\infty$; although it should still work on the smaller class $C_c^\infty$.)
