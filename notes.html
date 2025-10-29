@@ -8,7 +8,7 @@ title: notes
     <meta charset='UTF-8'>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
 
-    <meta name='description' content='Gavin Kerrigan is a PhD student studying machine learning.'>
+    <meta name='description' content='Gavin Kerrigan is a postdoc studying machine learning.'>
     <!-- A decent browser will parse this fine:
          https://webmasters.stackexchange.com/questions/92744. -->
     <meta name='keywords' content='
@@ -67,7 +67,7 @@ title: notes
     {% include nav.html %}
     <div id='blog' class='wrap'>
     	<h1> Notes </h1>
-    	<em> This is a collection of personal notes on various topics related to my research. These aren't meant to be pedagogical, but rather as a means of writing to learn. I make no claims of originality nor correctness -- proceed with caution. </em>
+    	<em> This is an evolving collection of personal notes on various topics. They are not intended to be pedagogical, may be incomplete, and may contain errors. If you notice an error or would like to discuss something here, feel free to reach out! </em>
                 {% assign topics = site.notes | group_by: "topic" %}
                 {% for topic in topics %}
                     <div class="topic">{{ topic.name }}</div>
