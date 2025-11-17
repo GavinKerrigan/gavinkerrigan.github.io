@@ -237,11 +237,31 @@ Let $J: \mathcal{P}_2(\R^d) \to \R$ be given by $J[\mu] = \frac{1}{2}W_2^2(\mu, 
 
 In summary, (1) the $W_2$ distance is always regularly superdifferentiable and any optimal coupling will induce such a variation, (2) $J[\mu]$ is differentiable at densities, (3) any subgradient induces an optimal plan (and so by uniqueness of gradients, if its differentiable, there must be a unique optimal plan), and (4) uniqueness of optimal plans is an obstruction to regular subdifferentiability.
 
+That is, when there is a unique optimal map $T: \R^d \to \R$ inducing the optimal plan between $\overline{\mu}$ and $\hat{\mu}$, then $\nabla J[\overline{\mu}] = (I, I - T)\_{\\#} \overline{\mu}$. 
+
 Note that (4) says that "subgrad $\implies$ singleton". But (2) says "singleton + map $\implies$ subgrad". This is actually sharp: you can give an example showing that singleton is not sufficient for subgrad.
 
 The reasoning in the example is kinda complex. It goes like this. (1) There is a unique optimal plan in this example. (2) By Prop 3.1 it induces a unique regular supergrad $\xi$. (3) If we had any subgrad, the functional would be differentiable, and thus the subgrad/supergrad is unique and coincide, meaning the only possible choice for a subgrad would actually be $\xi$. (4) Check that $\xi$ is not a subgrad. 
 
 Actually, the authors claim it follows from Prop 3.3 which I didn't see how. But I think my argument in the last paragraph might actually just be reproducing the proof of Prop 3.3. You can apply 3.3 by saying that if $\xi$ is a subgrad then its corresponding map must be the unique optimal thing so the $\xi$ they write down is the only candidate for the subgrad.
+
+A good heuristic to keep in mind: when you want to show $f(x) < o(h(x))$, it means that $f$ grows strictly slower than $h$, so it suffices to show that $\liminf f/h < 0$.
+
+I still don't have a great intuition for the geometry of this. I guess that it's acting like something like $-\|x\|$ and so you can have supergradients but not subgradients. I think the key thing is that there is a lack of smoothness in the optimal plans when your masses are atomic? Ahh okay! I kind of see it. At each of the masses at $\pm 1$ you have a quadratic potential, but then they meet at the origin to give you a nonsmooth thing. Then you can just take the diagonal direction to demonstrate this. Geometrically if you start at $\overline\{\mu\}$ and move along the y-axis, you'll be on a ridge. But if you split the mass of this point you'll be in the "smooth" parts where there now exists a map!
+
+So, in other words, you write down the "cost" for each atom in your taget. This gives you two quadratic potentials. Then, when your "location" that you're evaluating the functional at consists of several masses, you select the potential that corresponds to the target mass that the corresponding location mass is currently sitting at. Then, you just average these together. When your source points map to a single target guy, they are in the "smooth" part. But when there is mass splitting, you're averaging two potentials with different slopes! This also helps explain why things are okay when you're at a smooth density as you effectively smooth out these kinks.
+
+### General Subgradients
+
+This motivates the need for looking at a more general notion of subgradients. Since the Wasserstein distance is indeed differentiable when the input is a density, the idea is to take a sequence of densities converging to our input atomic distribution. In fact, you can carry this out just using Gaussians as your approximating smooth measures.
+
+I didn't go through the calculations in Example 2.2 in detail -- but I think their proof is just missing some details? I think you just construct an explicit coupling between $\xi, \xi_n$ by matching up the velocities, and then you can easily check that the $W_2$ distance goes to zero. I'm not sure why they didn't prove it this way (and maybe I'm misunderstanding, but their proof seems to do a COT decomposition, but then you need some additional kind of uniformity?)
+
+This leads to the following propostion.
+<div class='proposition'>
+	Let $\overline{\mu}, \hat{\mu} \in \mathcal{P}_2(\R^d)$. Let $J: \R^d \to \overline{\R}$ be $J[\mu] = \frac{1}{2}W_2^2 (\mu, \hat{\mu})$. Then, $J$ has a general subgradient at every $\overline{\mu}$, i.e., $\partial J[\overline{\mu}] \neq \varnothing$. Moreover, $\partial J[\overline{\mu}] \subseteq (\pi_1, \pi_1 - \pi_2)_{\#}\Gamma_o(\overline{\mu}, \hat{\mu})$. 
+</div>
+
 
 ## Questions
 
