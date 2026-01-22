@@ -152,4 +152,9 @@ html {
     display: inline;
     padding-right: 10px;
   }
+  #papers .oral-highlight {
+    color: #5A80E3;
+    font-weight: 700; /* equivalent to <strong> */
+}
+
   
