@@ -50,10 +50,14 @@ h1 {
   color: rgba(0, 0, 0, 0.6);
   text-decoration: none;
   border-bottom: none;
-  font-size: 12px;
+  font-size: 14px;
 }
-.nav a:hover {
-  font-weight: bold;
+.nav a:hover,
+.nav a[aria-current] {
+  color: rgba(0, 0, 0, 0.9);
+}
+.nav a[aria-current] {
+  font-weight: 600;
 }
 .nav ul {
   list-style-type: none;
@@ -61,7 +65,7 @@ h1 {
 }
 .nav ul li {
   display: inline;
-  margin-right: 10px;
+  margin-right: 16px;
 }
 .front-matter {
   padding: 20px 0;

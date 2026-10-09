@@ -9,7 +9,7 @@ title: index
     <meta charset='UTF-8'>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
 
-    <meta name='description' content='Gavin Kerrigan is a postdoc at Oxford studying machine learning.'>
+    <meta name='description' content='Gavin Kerrigan is a Research Fellow at Oxford studying machine learning.'>
     <meta name='keywords' content='
         machine learning,
         statistical machine learning,
@@ -27,48 +27,145 @@ title: index
     <meta name='author' content='Gavin Kerrigan'>
 
     <link rel="shortcut icon" href="/favicon.ico?">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href='/css/home.css' rel='stylesheet'/>
 
-    
+    <style>
+        #about {
+            --muted: #606776;
+            --accent: #3457c9;
+            color: #1f2430;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+        #about a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+        #about a:hover {
+            text-decoration-color: currentColor;
+        }
+        #about h1,
+        #about h2 {
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        #about #intro {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            margin-bottom: 44px;
+        }
+        #about #name {
+            font-size: 2.6rem;
+            letter-spacing: -0.01em;
+            margin: 0 0 10px;
+        }
+        #about #role {
+            margin: 0 0 16px;
+        }
+        #about #links {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 18px;
+            font-size: 15px;
+        }
+        #about #contact {
+            flex-basis: 100%;
+            margin: 0;
+            font-size: 14px;
+            color: var(--muted);
+        }
+        #about #profile {
+            width: 132px;
+            height: auto;
+            flex-shrink: 0;
+            margin: 0;
+            border-radius: 12px;
+        }
+        #about h2 {
+            font-size: 1.4rem;
+            margin: 2em 0 0.5em;
+        }
+        #about p {
+            margin: 0 0 1em;
+        }
+        #about #updated {
+            margin: 48px 0 0;
+            font-size: 13px;
+            color: var(--muted);
+        }
+        @media screen and (max-width: 740px) {
+            body {
+                margin: 0 20px;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            #about #intro {
+                flex-direction: column-reverse;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            #about #name {
+                font-size: 2.1rem;
+            }
+            #about #profile {
+                width: 108px;
+            }
+        }
+    </style>
 </head>
 <body>
     {% include nav.html %}
-    <div id='about', class='wrap'>
-        <div id='name'>
-	        Gavin Kerrigan
-        </div>
-        
-        <div id='contact'>
-            [firstname].kerrigan@stats.ox.ac.uk
-        </div>
-
-        <div id='body'>
-            <p>
-                I'm a postdoctoral research assistant working on machine learning in the <a href='https://www.stats.ox.ac.uk/'>Department of Statistics at the University of Oxford</a>, where I am fortunate to be a part of the RainML lab led by <a href='https://www.robots.ox.ac.uk/~twgr/'>Tom Rainforth</a>.
-            </p>
-            <p> 
-                <b>[Research Interests and Highlights]</b> <br>I work broadly in probabilistic machine learning, with a focus on the role of <i> distribution geometry </i> in how we manipulate, optimize, and compare probability distributions. Much of my research uses tools from optimal transport to define and exploit this geometric structure. I have developed these ideas to build generative models for function-valued data [<a href='https://arxiv.org/abs/2305.17209'>1</a>, <a href='https://arxiv.org/abs/2212.00886'>2</a>, <a href='https://arxiv.org/abs/2404.04240'>3</a>] and point processes [<a href='https://arxiv.org/abs/2410.07430'>4</a>], to solve inverse problems arising from PDEs [<a href='https://arxiv.org/abs/2505.17004'>5</a>, <a href='https://arxiv.org/abs/2404.04240'>6</a>], and develop new approaches for adaptive data acquisition [<a href='https://arxiv.org/abs/2510.14848'>7</a>, <a href='https://openreview.net/forum?id=pNO7VqKAcY'>8</a>].
-
-                <p> My work has been recognized with several awards, including a Best Paper Award (AISTATS 2026), a Best Student Paper Award (AISTATS 2024), and a Best Dissertation Award for my PhD thesis. </p>
-            </p>
-            <p>
-                <b>[Previously]</b> <br>
-                I completed my PhD in computer science at the <a href='https://www.cs.uci.edu/'>University of California, Irvine</a>, where I was advised by <a href='https://www.ics.uci.edu/~smyth/index.html'>Padhraic Smyth</a>. My work was supported by an <a href='https://hpi.ics.uci.edu/'>HPI Fellowship</a>, and I previously served as a <a href='https://aistats.org/aistats2024/committee.html'>workflow chair</a> for AISTATS. While at UCI, I served as the instructor for an <a href='https://www.youtube.com/playlist?list=PLBobiAuwAEU68QE4BSJIlExwxlPgiMMvq'>undergraduate machine learning course</a>. I also hold a BSc in Mathematics from the <a href='https://www.shc.psu.edu/'> Pennsylvania State University Schreyer Honors College</a>. 
-            </p>
-            
-            <div id='ack'>
-                This site is based in part on the public template by <a href='https://gregorygundersen.com/'>Gregory Gunderson</a>.
+    <div id='about' class='wrap'>
+        <header id='intro'>
+            <div>
+                <h1 id='name'>Gavin Kerrigan</h1>
+                <p id='role'>
+                    Florence Nightingale Bicentenary Fellow<br>
+                    <a href='https://www.stats.ox.ac.uk/'>Department of Statistics, University of Oxford</a>
+                </p>
+                <ul id='links'>
+                    <li id='contact'>[firstname].kerrigan@stats.ox.ac.uk</li>
+                    <li><a href='https://scholar.google.com/citations?user=2F2XCy8AAAAJ&hl=en'>Google Scholar</a></li>
+                    <li><a href='https://github.com/GavinKerrigan'>GitHub</a></li>
+                    <li><a href='/assets/kerrigan_gavin_CV.pdf'>CV</a></li>
+                </ul>
             </div>
-        </div>
+            <img id='profile' src='/assets/img/myface.png' alt='Portrait of Gavin Kerrigan' width='150' height='200'>
+        </header>
 
-        <div id='profile'>
-            <img src='assets/img/myface.png' alt='Me' class='img-fluid'>
-        </div>
+        <section>
+            <h2>Research</h2>
+            <p>
+                I work broadly in probabilistic machine learning, with a focus on generative models, optimal transport, and experimental design. I have developed these ideas to build generative models for function-valued data [<a href='https://arxiv.org/abs/2305.17209'>1</a>, <a href='https://arxiv.org/abs/2212.00886'>2</a>, <a href='https://arxiv.org/abs/2404.04240'>3</a>] and point processes [<a href='https://arxiv.org/abs/2410.07430'>4</a>], to solve inverse problems arising from PDEs [<a href='https://arxiv.org/abs/2505.17004'>5</a>, <a href='https://arxiv.org/abs/2404.04240'>6</a>], and develop new approaches for adaptive data acquisition [<a href='https://arxiv.org/abs/2510.14848'>7</a>, <a href='https://openreview.net/forum?id=pNO7VqKAcY'>8</a>, <a href='https://arxiv.org/abs/2607.08335'>9</a>].
+            </p>
+            <p>
+                My work has been recognized with several awards, including a Best Paper Award (AISTATS 2026), a Best Student Paper Award (AISTATS 2024), and a Best Dissertation Award for my PhD thesis.
+            </p>
+        </section>
 
-        
-        
-        
+        <section>
+            <h2>Working together</h2>
+            <p>
+                If you are a current Oxford postgraduate student interested in doing a miniproject, or are otherwise interested in collaborating with me, please do feel free to reach out.
+            </p>
+        </section>
+
+        <section>
+            <h2>Previously</h2>
+            <p>
+                I was previously a postdoctoral research assistant in the RainML lab led by <a href='https://www.robots.ox.ac.uk/~twgr/'>Tom Rainforth</a>. I completed my PhD in computer science at the <a href='https://www.cs.uci.edu/'>University of California, Irvine</a>, where I was advised by <a href='https://www.ics.uci.edu/~smyth/index.html'>Padhraic Smyth</a>. My work was supported by an <a href='https://hpi.ics.uci.edu/'>HPI Fellowship</a>, and I served as a <a href='https://aistats.org/aistats2024/committee.html'>workflow chair</a> for AISTATS. While at UCI, I served as the instructor for an <a href='https://www.youtube.com/playlist?list=PLBobiAuwAEU68QE4BSJIlExwxlPgiMMvq'>undergraduate machine learning course</a>. I also hold a BSc in Mathematics from the <a href='https://www.shc.psu.edu/'>Pennsylvania State University Schreyer Honors College</a>.
+            </p>
+        </section>
+
+        <p id='updated'>Last updated {{ site.time | date: '%B %Y' }}</p>
     </div>
 </body>
 </html>

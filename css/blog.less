@@ -57,9 +57,13 @@ h1 {
     color: rgba(0, 0, 0, 0.6);
     text-decoration: none;
     border-bottom: none;
-    font-size: 12px;
-    &:hover {
-      font-weight: bold;
+    font-size: 14px;
+    &:hover,
+    &[aria-current] {
+      color: rgba(0, 0, 0, 0.9);
+    }
+    &[aria-current] {
+      font-weight: 600;
     }
   }
   ul {
@@ -68,7 +72,7 @@ h1 {
 
     li {
       display: inline;
-      margin-right: 10px;
+      margin-right: 16px;
     }
   }
 }

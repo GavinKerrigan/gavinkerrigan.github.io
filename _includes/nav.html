@@ -1,10 +1,10 @@
 <div class='nav'>
     <ul class='wrap'>
-        <li><a href='/'>Home</a></li>
-        <li><a href='/publications'>Publications</a></li>
+        <li><a href='/' {% if page.url == '/' %}aria-current='page'{% endif %}>Home</a></li>
+        <li><a href='/publications' {% if page.url contains '/publications' %}aria-current='page'{% endif %}>Publications</a></li>
+        <li><a href='/teaching' {% if page.url contains '/teaching' %}aria-current='page'{% endif %}>Teaching</a></li>
+        <li><a href='/notes' {% if page.url contains '/notes' %}aria-current='page'{% endif %}>Notes</a></li>
         <li><a href='/assets/kerrigan_gavin_CV.pdf'>CV</a></li>
-        <!-- <li><a href='/assets/kerrigan_gavin_research_statement.pdf'>Research Statement</a></li> --> 
-        <li><a href='/notes'>Notes</a></li>
-        <li><a href='/teaching'>Teaching</a></li>
+        <!-- <li><a href='/assets/kerrigan_gavin_research_statement.pdf'>Research Statement</a></li> -->
     </ul>
 </div>
